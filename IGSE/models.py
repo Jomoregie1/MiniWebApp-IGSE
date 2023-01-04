@@ -5,6 +5,8 @@ from flask_login import UserMixin
 
 @login_manager.user_loader
 def load_user(email):
+    if email == 'gse@shangrila.gov.un':
+        return Admin.query.get('gse@shangrila.gov.un')
     return Customer.query.get(email)
 
 
@@ -32,4 +34,18 @@ class Customer(db.Model, UserMixin):
 
 class Admin(db.Model, UserMixin):
     __tablename__ = 'Admin'
+
+    Adminid = db.Column(db.String(64), primary_key=True)
+    Password_hash = db.Column(db.String(128))
+
+    def __init__(self,email,password):
+        self.Adminid = email
+        self.Password_hash = password
+
+    def check_user(self, password):
+        return check_password_hash('gse@energy', password)
+
+
+
+
 
