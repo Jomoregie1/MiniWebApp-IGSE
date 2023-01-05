@@ -1,10 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title></title>
 </head>
 <body>
+<ul class="nav">
+    <li class="nav-link">
+        <a href="{{url_for('core.index')}}">Home</a>
+    </li>
+    <li class="nav-link">
+        <a href="#">Log In</a>
+    </li>
+    <li class="nav-link">
+        <a href="{{url_for('core.register')}}">Sign Up</a>
+    </li>
+    <li class="nav-link">
+        <a href="#">Bills</a>
+    </li>
+    <li class="nav-link">
+        <a href='#'>Credit</a>
+    </li>
+    <li class="nav-link">
+        <a href="#">Price</a>
+    </li>
+    <li class="nav-link">
+        <a href="#">Meter Readings</a>
+    </li>
+    <li class="nav-link">
+        <a href="#">Statistics</a>
+    </li>
+</ul>
+<div class="container">
+  {% block content %}
 
+  {% endblock %}
+</div>
 </body>
 </html>

@@ -2,7 +2,6 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, RadioField, IntegerField
 from wtforms.validators import DataRequired, Email, EqualTo
 from wtforms import ValidationError
-from IGSE import models
 from IGSE.models import Customer
 
 
