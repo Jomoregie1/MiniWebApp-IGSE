@@ -7,7 +7,3 @@ core = Blueprint('core', __name__)
 def index():
     return render_template('index.html')
 
-
-@core.route('/signup')
-def register():
-    return render_template('register.html')
