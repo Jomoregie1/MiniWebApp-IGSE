@@ -10,6 +10,7 @@ def load_user(email):
 
 
 class Customer(db.Model, UserMixin):
+
     __tablename__ = 'Customer'
 
     customer_id = db.Column(db.String(64), primary_Key=True)
@@ -23,7 +24,8 @@ class Customer(db.Model, UserMixin):
     readings = db.relationship('Reading', backref='customer', lazy=True)
     vouchers = db.relationship('Voucher', backref='customer', lazy=True, uselist=False)
 
-    def __init__(self, email, address, password, property_type, bedroom_num, evc):
+    def __init__(self, name, email, address, password, property_type, bedroom_num, evc):
+        self.name = name
         self.customer_id = email
         self.password_hash = generate_password_hash(password)
         self.address = address
