@@ -13,7 +13,7 @@ class Customer(db.Model, UserMixin):
 
     __tablename__ = 'Customer'
 
-    customer_id = db.Column(db.String(64), primary_Key=True)
+    customer_id = db.Column(db.String(64), primary_key=True)
     password_hash = db.Column(db.String(128), nullable=False)
     address = db.Column(db.Text, nullable=False)
     property_type = db.Column(db.String, nullable=False)
@@ -71,7 +71,7 @@ class Reading(db.Model):
 
     """ Used to create readings model in the database """
     reading_id = db.Column(db.Integer, primary_key=True)
-    customer_id = db.Column(db.String(64), db.ForeignKey('Customer.customer_id', nullable=False))
+    customer_id = db.Column(db.String(64), db.ForeignKey('Customer.customer_id'))
     submission_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     elec_readings_day = db.Column(db.Float, nullable=False)
     elec_readings_night = db.Column(db.Float, nullable=False)
@@ -102,6 +102,6 @@ class Voucher(db.Model):
     __tablename__ = 'Voucher'
 
     """ Used to create voucher model in the database """
-    EVC_code = db.Column(db.String(64))
-    customer_id = db.Column(db.String(64), db.ForeignKey('Customer.customer_id', nullable=False))
+    EVC_code = db.Column(db.String(64), primary_key=True)
+    customer_id = db.Column(db.String(64), db.ForeignKey('Customer.customer_id'))
     used = db.Column(db.Boolean, nullable=False)

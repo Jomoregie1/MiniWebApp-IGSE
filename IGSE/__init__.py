@@ -5,7 +5,6 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from IGSE.Core.views import core
 from IGSE.error_pages.handlers import error_pages
-from IGSE.Customers.views import customer
 
 login_manager = LoginManager()
 
@@ -25,7 +24,6 @@ login_manager.login_view = 'customers.login'
 # adding blueprints
 app.register_blueprint(core)
 app.register_blueprint(error_pages)
+from IGSE.Customers.views import customer
+
 app.register_blueprint(customer)
-
-
-
