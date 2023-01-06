@@ -1,18 +1,11 @@
 from flask_wtf import FlaskForm
 from wtforms import SubmitField, PasswordField, StringField, RadioField, IntegerField
 from wtforms.validators import DataRequired, EqualTo, Email
-from email_validator import validate_email
 from wtforms import ValidationError
 from IGSE.error_pages import handlers
 
 from flask_login import current_user
 from IGSE.models import Customer
-
-
-class LoginForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    submit = SubmitField('Submit')
 
 
 class RegistrationForm(FlaskForm):
