@@ -29,7 +29,7 @@ class RegistrationForm(FlaskForm):
                                                          ('mansion', 'Mansion')])
     bedroom_num = IntegerField('Number of rooms', validators=[DataRequired()])
     evc = IntegerField('Evc code', validators=[DataRequired()])
-    Submit = SubmitField('Register')
+    submit = SubmitField('Register')
 
     # TODO this may cause a bug and is used to throw an error if the user has entered an email that exist already.
     def check_email(self, field):

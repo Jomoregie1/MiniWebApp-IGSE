@@ -32,7 +32,6 @@ def login():
 @customer.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = RegistrationForm()
-    form.submit = 'Sign up'
 
     if form.validate_on_submit():
         user = Customer(name=form.name.data,

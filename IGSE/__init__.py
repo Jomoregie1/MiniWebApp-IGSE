@@ -5,12 +5,14 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from IGSE.Core.views import core
 from IGSE.error_pages.handlers import error_pages
+from flask_admin import Admin
 
 login_manager = LoginManager()
 
 # app config
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "mysecretkey"
+admin = Admin(app, template_mode='bootstrap3')
 
 # Database setup -------------------------------------------------
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
