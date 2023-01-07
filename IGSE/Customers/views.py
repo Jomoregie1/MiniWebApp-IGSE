@@ -22,6 +22,6 @@ def signup():
         db.session.add(user)
         db.session.commit()
         flash(f'Thanks {form.name.data}, for registering.')
-        return redirect(url_for('users.login'))
+        return redirect(url_for('core.login'))
 
     return render_template('register.html', form=form)
