@@ -10,7 +10,6 @@ def load_user(email):
 
 
 class Customer(db.Model, UserMixin):
-
     __tablename__ = 'Customer'
 
     customer_id = db.Column(db.String(64), primary_key=True)
@@ -45,7 +44,7 @@ class Admin(db.Model):
     __tablename__ = 'admin'
 
     email = db.Column(db.String(255), primary_key=True)
-    password_hash = db.Column(db.String(255), nullable=False)
+    password_hash = db.Column(db.String(255), nullable=False, unique=True)
 
     def __init__(self, email, password):
         self.email = email
