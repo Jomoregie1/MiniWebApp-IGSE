@@ -3,12 +3,18 @@ from flask_login import login_user, logout_user
 from IGSE import db
 from IGSE.models import Customer, Admin
 from IGSE.Core.forms import LoginForm
+from flask_login import current_user
 
 core = Blueprint('core', __name__)
 
 
 @core.route('/')
 def index():
+    # checks if the user is logged in, if not returns them to the login page.
+    if not current_user.is_authenticated:
+        # TODO make the flash message pop up
+        flash('Please login')
+        return redirect(url_for('core.login'))
     return render_template('index.html')
 
 

@@ -8,7 +8,9 @@
 <body>
 <ul class="nav">
     <li class="nav-link">
+         {% if current_user.is_authenticated %}
         <a href="{{url_for('core.index')}}">Home</a>
+        {% endif %}
     </li>
     <li class="nav-link">
         <a href="{{url_for('core.login')}}">Log In</a>
@@ -17,22 +19,32 @@
         <a href="{{url_for('customer.signup')}}">Sign Up</a>
     </li>
     <li class="nav-link">
-        <a href="#">Bills</a>
-    </li>
-    <li class="nav-link">
-        <a href='#'>Credit</a>
-    </li>
-    <li class="nav-link">
-        <a href="#">Price</a>
-    </li>
-    <li class="nav-link">
-        <a href="#">Meter Readings</a>
-    </li>
-    <li class="nav-link">
-        <a href="#">Statistics</a>
-    </li>
-    <li class="nav-link">
         <a href="{{url_for('core.logout')}}">logout</a>
+    </li>
+    <li class="nav-link">
+        {% if current_user.is_authenticated %}
+        <a href="#">Bills</a>
+        {% endif %}
+    </li>
+    <li class="nav-link">
+        {% if current_user.is_authenticated %}
+        <a href='#'>Credit</a>
+         {% endif %}
+    </li>
+    <li class="nav-link">
+        {% if current_user.is_authenticated %}
+        <a href="#">Price</a>
+        {% endif %}
+    </li>
+    <li class="nav-link">
+        {% if current_user.is_authenticated %}
+        <a href="#">Meter Readings</a>
+        {% endif %}
+    </li>
+    <li class="nav-link">
+        {% if current_user.is_authenticated %}
+        <a href="#">Statistics</a>
+        {% endif %}
     </li>
 </ul>
 <div class="container">

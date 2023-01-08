@@ -1,14 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="jumbotron">
-    <h1> Login</h1>
-</div>
-
+<h2 class="text-uppercase text-center mb-5"> Sign into your account </h2 >
 <form method="POST">
-    {{form.email.label}}{{form.email}} <br>
-    {{form.password.label}}{{form.password}} <br>
-    {{form.submit()}}
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+     {{form.email(class="form-control")}}
+    <label class="form-label"> {{form.email.label}} </label>
+  </div>
+
+  <!-- Password input -->
+  <div class="form-outline mb-4">
+    {{form.password(class="form-control")}}
+    <label class="form-label">{{form.password.label}}</label>
+  </div>
+
+  <!-- Submit button -->
+  {{form.submit(class="btn btn-primary btn-block mb-4")}}
+
+  <!-- Register buttons -->
+  <div class="text-center">
+    <p>Not a member? <a href="{{url_for('customer.signup')}}">Register</a></p>
+  </div>
 </form>
 
 {% endblock %}
